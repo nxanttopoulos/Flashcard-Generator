@@ -4,7 +4,7 @@ var inquirer = require("inquirer");
 inquirer.prompt([
      {
     type: "input",
-    message: "Create your Basic Flash card by writing: basic, 'frontside text', 'backside text' \n Or Cloze Card: cloze, 'full text', 'cloze text'",
+    message: "Create your Basic Flash card by writing: 'basic', 'frontside text', 'backside text' \n  Or Cloze Card by writing: 'cloze', 'full text', 'cloze text' \n  (No Quotation Marks)",
     name: "name",
   },
 ]).then(function(user) {
@@ -40,13 +40,13 @@ inquirer.prompt([
     console.log("Frontside: "+ basicCard.front);
     console.log("Backside: "+ basicCard.back);
   } else if (command === "cloze") {
-    if (frontSide.includes(backSide) === false) {
+    if (frontSide.includes(backSide) === true) {
       console.log("Oops, this doesn't work!");
     } else {
     var clozeCard = new ClozeCard(frontSide, backSide);
     fs.appendFile('log.txt', "Cloze Card: " + JSON.stringify(clozeCard)+"\n", (err) => {
-        if (err) throw err;
-        console.log("New Cloze Flash Card Created!");
+      if (err) throw err;
+      console.log("New Cloze Flash Card Created!");
     });
     console.log("Full Text: "+ clozeCard.fullText + ".");
     console.log("Partial Text : "+ clozeCard.partial + ".");
