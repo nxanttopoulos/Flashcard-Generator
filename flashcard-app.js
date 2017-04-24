@@ -25,8 +25,7 @@ inquirer.prompt([
   function ClozeCard(text, cloze) {
     this.fullText = text;
     this.cloze = cloze;
-    var minusOne = text.substring(text.indexOf(' ')+1);
-    this.partial = "..." + minusOne.substring(minusOne.indexOf(' ')+1);
+    this.partial = text.replace(cloze, "..."); 
   }
   var firstPresidentCloze = new ClozeCard(
       "George Washington was the first president of the United States.", "George Washington");
@@ -40,7 +39,7 @@ inquirer.prompt([
     console.log("Frontside: "+ basicCard.front);
     console.log("Backside: "+ basicCard.back);
   } else if (command === "cloze") {
-    if (frontSide.includes(backSide) === true) {
+    if (frontSide.includes(backSide) === false) {
       console.log("Oops, this doesn't work!");
     } else {
     var clozeCard = new ClozeCard(frontSide, backSide);

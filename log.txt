@@ -1,3 +1,1 @@
-Basic Card: {"front":"front","back":"back"}
-Cloze Card: {"fullText":"front","cloze":"back","partial":"...front"}
-Cloze Card: {"fullText":"front","cloze":"back","partial":"...front"}
+Cloze Card: {"fullText":"John Adams was the second president of the United States","cloze":"John Adams","partial":"... was the second president of the United States"}
